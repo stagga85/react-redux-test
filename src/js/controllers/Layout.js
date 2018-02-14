@@ -16,6 +16,8 @@ class Layout extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.search = this.search.bind(this);
 
+        console.log(this.props.navigation);
+
         this.state = {
             articles: [],
             isLoading: false,
@@ -63,13 +65,20 @@ class Layout extends React.Component {
                     id="inlineFormInputGroup"
                     placeholder="Search" />
                 <button onClick={this.handleClick} type="submit" className="btn btn-primary">Submit</button>
+                <svg height="200" width="500">
+                    <polyline points="20,20 40,25 60,40 80,120 120,140 200,180"
+                              style={{ fill: 'none', stroke: 'black', strokeWidth :3 }} />
+                </svg>
             </div>
         );
     }
 }
 
 function mapStateToProps(state) {
-    return { user: state.user }
+    return {
+        user: state.user,
+        navigation: state.navigation
+    };
 }
 
 function mapDispatchToProps(dispatch) {
